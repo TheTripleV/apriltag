@@ -21,6 +21,7 @@ jobs:
     - name: "compile"
       run: |
         make install
+        make libapriltag.a
         cd example
         make apriltag_demo        
 
