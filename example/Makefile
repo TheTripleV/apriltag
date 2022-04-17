@@ -2,8 +2,8 @@ CC = arm-frc2022-linux-gnueabi-gcc
 CXX = arm-frc2022-linux-gnueabi-g++
 
 CPPFLAGS = -I.. `pkg-config --cflags opencv4`
-CFLAGS = -g -std=gnu99 -Wall -Wno-unused-parameter -Wno-unused-function -O3
-CXXFLAGS = -g -Wall -O3
+CFLAGS = -g -std=gnu99 -Wall -Wno-unused-parameter -Wno-unused-function -O2
+CXXFLAGS = -g -Wall -O2
 LDFLAGS = -lpthread -lm
 
 TARGETS := apriltag_demo opencv_demo
