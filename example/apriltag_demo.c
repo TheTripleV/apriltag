@@ -135,25 +135,25 @@ int main(int argc, char *argv[])
             else
                 printf("%20s ", path);
 
-            printf("1");
+            printf("1\n");
             image_u8_t *im = NULL;
             if (str_ends_with(path, "pnm") || str_ends_with(path, "PNM") ||
                 str_ends_with(path, "pgm") || str_ends_with(path, "PGM"))
                 im = image_u8_create_from_pnm(path);
             else if (str_ends_with(path, "jpg") || str_ends_with(path, "JPG")) {
                 int err = 0;
-                printf("2");
+                printf("2\n");
                 pjpeg_t *pjpeg = pjpeg_create_from_file(path, 0, &err);
-                printf("3");
+                printf("3\n");
                 if (pjpeg == NULL) {
                     printf("pjpeg failed to load: %s, error %d\n", path, err);
                     continue;
                 }
-                printf("pjpeg_create_from_file");
+                printf("pjpeg_create_from_file\n");
 
                 if (1) {
                     im = pjpeg_to_u8_baseline(pjpeg);
-                    printf("pjpeg_to_u8_baseline");
+                    printf("pjpeg_to_u8_baseline\n");
                 } else {
                     printf("illumination invariant\n");
 
@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
                 }
 
                 pjpeg_destroy(pjpeg);
-                printf("pjpeg_destroy");
+                printf("pjpeg_destroy\n");
             }
 
             if (im == NULL) {
@@ -192,7 +192,7 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            printf("qq");
+            printf("qq\n");
             printf("image: %s %dx%d\n", path, im->width, im->height);
 
             zarray_t *detections = apriltag_detector_detect(td, im);
