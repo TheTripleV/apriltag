@@ -135,18 +135,20 @@ int main(int argc, char *argv[])
             else
                 printf("%20s ", path);
 
+            printf("1");
             image_u8_t *im = NULL;
             if (str_ends_with(path, "pnm") || str_ends_with(path, "PNM") ||
                 str_ends_with(path, "pgm") || str_ends_with(path, "PGM"))
                 im = image_u8_create_from_pnm(path);
             else if (str_ends_with(path, "jpg") || str_ends_with(path, "JPG")) {
                 int err = 0;
+                printf("2");
                 pjpeg_t *pjpeg = pjpeg_create_from_file(path, 0, &err);
+                printf("3");
                 if (pjpeg == NULL) {
                     printf("pjpeg failed to load: %s, error %d\n", path, err);
                     continue;
                 }
-
                 printf("pjpeg_create_from_file");
 
                 if (1) {
