@@ -1,0 +1,30 @@
+name: rio
+
+# This determines when this workflow is run
+on: [push, pull_request] # on all pushes and PRs
+
+jobs:
+  cross-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+        - container: robotpy/roborio-cross-ubuntu:2022.3
+          name: roborio
+
+    container:
+      image: "${{ matrix.os.container }}"
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: "compile"
+      run: |
+        make install
+        cd example
+        make apriltag_demo        
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: dist-${{ matrix.os.name }}
+        path: example
