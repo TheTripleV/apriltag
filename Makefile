@@ -1,6 +1,6 @@
 PREFIX ?= /usr/local
 
-CC = gcc
+CC = arm-frc2022-linux-gnueabi-gcc
 AR = ar
 
 CFLAGS = -fPIC -Wall -Wno-unused-parameter -Wno-unused-function

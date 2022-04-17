@@ -1,5 +1,5 @@
-CC = gcc
-CXX = g++
+CC = arm-frc2022-linux-gnueabi-gcc
+CXX = arm-frc2022-linux-gnueabi-g++
 
 CPPFLAGS = -I.. `pkg-config --cflags opencv4`
 CFLAGS = -g -std=gnu99 -Wall -Wno-unused-parameter -Wno-unused-function -O3
