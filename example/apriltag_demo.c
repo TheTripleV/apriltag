@@ -147,8 +147,11 @@ int main(int argc, char *argv[])
                     continue;
                 }
 
+                printf("pjpeg_create_from_file");
+
                 if (1) {
                     im = pjpeg_to_u8_baseline(pjpeg);
+                    printf("pjpeg_to_u8_baseline");
                 } else {
                     printf("illumination invariant\n");
 
@@ -179,6 +182,7 @@ int main(int argc, char *argv[])
                 }
 
                 pjpeg_destroy(pjpeg);
+                printf("pjpeg_destroy");
             }
 
             if (im == NULL) {
@@ -186,6 +190,7 @@ int main(int argc, char *argv[])
                 continue;
             }
 
+            printf("qq");
             printf("image: %s %dx%d\n", path, im->width, im->height);
 
             zarray_t *detections = apriltag_detector_detect(td, im);
